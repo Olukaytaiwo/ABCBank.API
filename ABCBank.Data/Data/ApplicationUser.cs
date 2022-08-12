@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,5 +22,10 @@ namespace ABCBank.Data
         public string LastName { get; set; }
         public string BVN { get; set; }
         public string Address { get; set; }
+        public string CustomerNumber { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public DateTime ModifiedOn { get; set; }
+        public DateTime LastLogOn { get; set; }
     }
 }

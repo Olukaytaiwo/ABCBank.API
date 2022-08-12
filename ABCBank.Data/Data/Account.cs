@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace ABCBank.Data
 {
-    public class Cards : AuditBase
+    public class Account : AuditBase
     {
         public long Id { get; set; }
+        public string CustomerId { get; set; }
         public string AccountNumber { get; set; }
-        public string CustomerNumber { get; set; }
-        public string CardPan { get; set; }
-        public string PIN { get; set; }        
     }
 }
