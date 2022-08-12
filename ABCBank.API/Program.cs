@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ABCBank.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,8 @@ var services = builder.Services;
 services.AddDbContext<DataContext>(options =>
                options.UseSqlServer(IConfiguration.GetConnectionString("ABCBankConnection")));
 
-
+services.AddScoped<IAccountService, AccountService>();
+services.AddScoped<ITransactionService, TransactionService>();
 
 
 var app = builder.Build();
