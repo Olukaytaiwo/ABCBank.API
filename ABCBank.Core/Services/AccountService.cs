@@ -27,7 +27,6 @@ namespace ABCBank.Core
             {
                 Random rd = new Random();
 
-
                 var user = new ApplicationUser()
                 {
                     UserName = request.UserName,
@@ -38,6 +37,7 @@ namespace ABCBank.Core
 
                 //add user
                 var addUserResult = await _userManager.CreateAsync(user);
+                await _userManager.AddPasswordAsync(user, request.Password);
 
                 if (!addUserResult.Succeeded)
                     return await Task.FromResult(new Response<ApplicationUser>
